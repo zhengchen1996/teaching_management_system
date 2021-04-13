@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>学生-学期课表</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/class/stu_schedule.css' %}" />
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（学生端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：学生xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:stu_infor' %}">个人信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_stu' %}" >修改密码</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">通知公告</div>
+      <div class="smenu">
+       <a href="{% url 'noticeapp:stu_notice' %}" >公告信息</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn1">课表查询</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_schedule' %}" >本学期课表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">选课管理</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_class_select' %}" >选课列表</a>
+       <a href="{% url 'classapp:stu_class_selected' %}" >已选课程列表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">成绩查询</div>
+      <div class="smenu">
+       <a href="{% url 'scoreapp:stu_score' %}" >课程成绩查询</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">考务安排</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:stu_exam' %}" >考场查询</a>
+       <div class="sli">
+        <div class="sbtn">等级考试管理</div>
+        <div class="ssmenu">
+         <a href="{% url 'examapp:stu_grade_sign' %}" >考试报名</a>
+         <a href="{% url 'examapp:stu_grade_signed' %}" >已报等级考试列表</a>
+        </div>
+       </div>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">教学评估</div>
+      <div class="smenu">
+       <a href="{% url 'teachapp:stu_teach' %}" >学生评教</a>
+      </div>
+     </li>
+    
+    </div>
+   </aside>
+   <article>
+    <table cellspacing="1" cellpadding="0">
+     <tr>
+      <td colspan="9" class="td1">
+       <div class="div4">学期课表</div>
+      </td>
+     </tr>
+     
+     <tr class="tr1">
+      <td></td>
+      <td>节次</td>
+      <td>星期一</td>
+      <td>星期二</td>
+      <td>星期三</td>
+      <td>星期四</td>
+      <td>星期五</td>
+      <td>星期六</td>
+      <td>星期日</td>
+     </tr>
+     
+     <tr>
+      <td rowspan="2" class="td3">上午</td>
+      <td class="td3">1-2</td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+     </tr>
+     
+     <tr>
+      <td class="td3">3-4</td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+     </tr>
+     
+     <tr>
+      <td rowspan="2" class="td3">下午</td>
+      <td class="td3">5-6</td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+     </tr>
+     
+     <tr>
+      <td class="td3">7-8</td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+     </tr>
+     
+     <tr>
+      <td class="td3">晚上</td>
+      <td class="td3">9-11</td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+      <td class="td2"></td>
+     </tr>
+     
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

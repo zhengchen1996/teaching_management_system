@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>学生-通知公告</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/notice/stu_notice.css' %}" />
+</head>
+
+<body>
+  <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（学生端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：学生xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:stu_infor' %}">个人信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_stu' %}" >修改密码</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn1">通知公告</div>
+      <div class="smenu">
+       <a href="{% url 'noticeapp:stu_notice' %}" >公告信息</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">课表查询</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_schedule' %}" >本学期课表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">选课管理</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_class_select' %}" >选课列表</a>
+       <a href="{% url 'classapp:stu_class_selected' %}" >已选课程列表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">成绩查询</div>
+      <div class="smenu">
+       <a href="{% url 'scoreapp:stu_score' %}" >课程成绩查询</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">考务安排</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:stu_exam' %}" >考场查询</a>
+       <div class="sli">
+        <div class="sbtn">等级考试管理</div>
+        <div class="ssmenu">
+         <a href="{% url 'examapp:stu_grade_sign' %}" >考试报名</a>
+         <a href="{% url 'examapp:stu_grade_signed' %}" >已报等级考试列表</a>
+        </div>
+       </div>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">教学评估</div>
+      <div class="smenu">
+       <a href="{% url 'teachapp:stu_teach' %}" >学生评教</a>
+      </div>
+     </li>
+    
+    </div>
+   </aside>
+   <article>
+    <table cellspacing="1" cellpadding="0">
+     <tr>
+      <td colspan="4" class="td1">
+       <div class="div4">通知公告</div>
+      </td>
+     </tr>
+     
+     <tr class="tr1">
+      <td>标题</td>
+      <td>发布人</td>
+      <td>内容</td>
+      <td>时间</td>
+     </tr>
+
+     {% for admin in list %}
+     <tr>
+{#      <td class="td2"><a href="">{{  }}</a></td>#}
+{#      <td class="td2">{{  }}</td>#}
+{#      <td class="td2">{{  }}</td>#}
+{#      <td class="td2">{{  }}</td>#}
+     </tr>
+     {% endfor %}
+     
+     <tr class="tr2">
+      <td colspan="7">
+       <a class="a1" href="">首页</a>
+       <a class="a2" href="">﹤上一页</a>
+       <a class="a3" href="">1</a>
+       <a class="a4" href="">下一页﹥</a> 
+       <a class="a5" href="">尾页</a>
+      </td>
+     </tr>
+     
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

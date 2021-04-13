@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员-首页</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/admin_homepage.css' %}" />
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（管理员端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：管理员xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_admin' %}">管理员信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_admin' %}">修改密码</a>
+      </div>
+     </li>
+      
+     <li><a class="btn" href="{% url 'classapp:admin_class' %}">课程信息管理</a></li>
+     
+     <li>
+      <div class="btn">用户信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_teacher' %}">教师信息管理</a>
+       <a href="{% url 'personal_inforapp:admin_stu' %}">学生信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'noticeapp:admin_notice' %}">通知公告管理</a></li>
+     
+     <li>
+      <div class="btn">考务信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:admin_exam' %}">考场信息管理</a>
+       <a href="{% url 'examapp:admin_gradeexam' %}">等级考试信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'teachapp:admin_teach' %}">教学评估管理</a></li>
+     
+    </div>
+   </aside>
+   
+   <article>
+    <div>
+     欢迎使用教务管理系统！
+    </div>
+   </article>
+   
+  </main>
+ </div>
+</body>
+</html>

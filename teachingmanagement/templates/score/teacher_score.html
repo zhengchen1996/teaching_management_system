@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>教师-学生成绩单</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/score/teacher_score.css' %}" />
+
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（教师端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：教师xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:teacher_infor' %}">个人信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_teacher' %}">修改密码</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">通知公告</div>
+      <div class="smenu">
+       <a href="{% url 'noticeapp:teacher_notice' %}">公告信息</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">任课课程</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:teacher_class' %}">我的任课课程</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">考务安排</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:teacher_classexam' %}">任课课程考试信息</a>
+       <a href="{% url 'examapp:teacher_invigilate' %}">我的监考科目</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn1">成绩信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'scoreapp:teacher_score' %}">学生成绩管理</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">教学评估信息</div>
+      <div class="smenu">
+       <a href="{% url 'teachapp:teacher_teach' %}">教学质量分析</a>
+      </div>
+     </li>
+     
+    </div>
+   </aside>
+   <article>
+    <table cellspacing="1" cellpadding="0">
+     <tr>
+      <td colspan="9" class="td1">
+       <div class="div4">学生成绩单</div>
+
+       <select class="select1">
+        <option selected="selected">所有学院</option>
+        <option>xx学院</option>
+       </select>
+
+
+       <select class="select2">
+        <option selected="selected">所有专业</option>
+        <option>xx专业</option>
+       </select>
+
+       <select class="select3">
+        <option selected="selected">所有班级</option>
+        <option>xx班级</option>
+       </select>
+
+       <input placeholder="请输入课程信息或学生信息" class="input1" type="text"/>
+       <input class="button" type="button" value="搜索" />
+      </td>
+     </tr>
+     
+     <tr class="tr1">
+      <td>课程代码</td>
+      <td>课程名称</td>
+      <td>学生学号</td>
+      <td>学生姓名</td>
+      <td>学院</td>
+      <td>专业</td>
+      <td>班级</td>
+      <td>分数</td>
+      <td>操作</td>
+     </tr>
+     {% for score in list %}
+     <tr>
+      <td class="td2">{{ score.class_id }}</td>
+      <td class="td2">{{ score.class_id }}</td>
+      <td class="td2">{{ score.stu_id }}</td>
+      <td class="td2">{{ score.stu_id }}</td>
+      <td class="td2">{{ class.time }}</td>
+      <td class="td2">{{ class.place }}</td>
+      <td class="td2">{{ class.week }}</td>
+      <td class="td2">{{ score.grade }}</td>
+      <td class="td3">
+       <input class="mark" type="button" value="打分" onclick="window.location.href='http://127.0.0.1:8000/score/add_score/'"/>
+      </td>
+     </tr>
+     {% endfor %}
+     
+     <tr class="tr2">
+      <td colspan="9">
+       <a class="a1" href="">首页</a>
+       <a class="a2" href="">﹤上一页</a>
+       <a class="a3" href="">1</a>
+       <a class="a4" href="">下一页﹥</a> 
+       <a class="a5" href="">尾页</a>
+      </td>
+     </tr>
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

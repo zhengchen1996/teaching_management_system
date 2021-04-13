@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	text-decoration:none;
+}
+
+.div1{
+	width:1290px;
+	height:100%;
+	margin:0 auto;
+}
+
+.header1{
+	border:1px solid #CCC;
+	background-color:#F1F1F1;
+	height:50px;
+}
+
+.div2{
+	color:#666;
+	margin-top:13px;
+	margin-left:10px;
+	font-size:18px;
+	float:left;
+}
+
+.select{
+	float:right;
+	margin-right:10px;
+	margin-top:15px;
+	width:150px;
+}
+
+main{
+	width:100%;
+	margin-top:20px;
+}
+
+aside{
+	float:left;
+}
+
+.menu{
+	width:160px;
+	overflow:hidden;
+}
+
+.menu>li, .sli{
+	overflow:hidden;
+}
+
+.btn{
+	display:block;
+	background-color:#FFF;
+	text-align:center;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:16px;
+	color:#2C689C;
+}
+
+.btn1{
+	display:block;
+	padding-top:20px;
+	padding-bottom:20px;
+	font-size:16px;
+	text-align:center;
+	/*position:relative;*/
+	color:#2C689C;
+	background-color:#CCC;
+}
+
+.smenu, .ssmenu{
+	background:#F1F1F1;
+	overflow:hidden;
+	max-height:0;
+}
+
+.smenu a, .sbtn, .ssmenu a{
+	display:block;
+	padding-top:15px;
+	padding-bottom:15px;
+	font-size:16px;
+	text-align:center;
+	/*position:relative;*/
+	color:#2C689C;
+}
+
+.smenu a:hover{
+	color:#FFF;
+	background-color:#2C689C;
+}
+
+.ssmenu a:hover{
+	color:#FFF;
+	background-color:#2C689C;
+}
+
+.menu>li:hover .btn{
+	background-color:#CCC;
+}
+
+.sli:hover{
+	background-color:#CCC;
+}
+
+.menu>li:hover .smenu{
+	max-height:20em;
+}
+
+.sli:hover .ssmenu{
+	max-height:20em;
+}
+
+article{
+	float:left;
+	margin-left:30px;
+	height:500px;
+	width:1100px;
+}
+
+table{
+	border:0;
+	background-color:#999;
+	width:100%;
+}
+
+table td{
+	background-color:#FFF;
+	height:50px;
+	font:16px;
+}
+
+.td1{
+	height:100px;
+	background-color:#E6E6E6;
+}
+
+.div4{
+	float:left;
+	font:34px "黑体";
+	margin-left:15px;
+	margin-top:15px;
+}
+
+.tr1 td{
+	padding-left:5px;
+	font-weight:bold;
+}
+
+.td2{
+	padding-left:5px;
+}
+
+.tr2 td{
+	height:100px;
+	background-color:#E6E6E6;
+	text-align:center;
+}
+
+.a1, .a3, .a5{
+	border:1px solid #999;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:3px;
+	padding-top:3px;
+	color:#000;
+	background-color:#FFF;
+}
+
+.a2, .a4{
+	border:1px solid #999;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:3px;
+	padding-top:3px;
+	color:#000;
+	margin-left:5px;
+	background-color:#FFF;
+}
+
+.a3, .a5{
+	margin-left:5px;
+}
+
+.a1:hover, .a2:hover, .a3:hover, .a4:hover, .a5:hover{
+	color:#FFF;
+	background-color:#2C689C;
+}

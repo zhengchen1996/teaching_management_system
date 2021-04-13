@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:url(../images/login.jpg);
+	background-size:cover;
+}
+
+.div1{
+	background-color:#515151;
+	width:25%;
+	height:250px;
+	border-radius:5%;
+	margin:14% auto;
+}
+
+.div2{
+	width:100%;
+	font:25px "宋体";
+	color:#FFF;
+	text-align:center;
+	padding-top:30px;
+	padding-bottom:20px;
+}
+
+.table1{
+	width:100%;
+}
+
+.td1{
+	font:15px "宋体";
+	color:#FFF;
+	text-align: right;
+	padding-left: 15px;
+}
+
+.td5{
+	padding-left: 40px;
+}
+
+.td2{
+	font:bold 12px "宋体";
+	color:#36F;
+	text-align:right;
+	height:12px;
+}
+
+.td3{
+	text-align:center;
+	height:30px;
+}
+
+.button{
+	background-color:#2C689C;
+	font:15px "宋体";
+	color:#FFF;
+	border:0;
+	width:60px;
+	height:25px;
+}

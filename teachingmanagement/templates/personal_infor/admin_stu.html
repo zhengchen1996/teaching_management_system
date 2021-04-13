@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员-学生信息管理</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/personal_info/admin_stu.css' %}" />
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（管理员端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：管理员xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_admin' %}">管理员信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_admin' %}">修改密码</a>
+      </div>
+     </li>
+      
+     <li><a class="btn" href="{% url 'classapp:admin_class' %}">课程信息管理</a></li>
+     
+     <li>
+      <div class="btn1">用户信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_teacher' %}">教师信息管理</a>
+       <a href="{% url 'personal_inforapp:admin_stu' %}">学生信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'noticeapp:admin_notice' %}">通知公告管理</a></li>
+     
+     <li>
+      <div class="btn">考务信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:admin_exam' %}">考场信息管理</a>
+       <a href="{% url 'examapp:admin_gradeexam' %}">等级考试信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'teachapp:admin_teach' %}">教学评估管理</a></li>
+     
+    </div>
+   </aside>
+   
+   <article>
+    <table cellspacing="1" cellpadding="0">
+     <tr>
+      <td colspan="12" class="td1">
+       <div class="div4">学生信息管理</div>
+       
+
+       <select class="select1">
+        <option selected="selected">计算机科学与技术所有学院</option>
+        <option>xx学院</option>
+       </select>
+   
+       <select class="select2">
+        <option selected="selected">计算机科学所有专业</option>
+        <option>xx专业</option>
+       </select>
+  
+       <select class="select3">
+        <option selected="selected">软工1602</option>
+        <option>xx班级</option>
+       </select>
+
+       <input placeholder="请输入学生姓名或学号" class="input1" type="text"/>
+       <input class="button" type="button" value="搜索" />
+       
+       <div class="div5"><a href="{% url 'personal_inforapp:add_stu' %}">添加学生信息</a></div>
+      </td>
+     </tr>
+     
+     <tr class="tr1">
+      <td>学号</td>
+      <td>密码</td>
+      <td>姓名</td>
+      <td>性别</td>
+      <td>籍贯</td>
+      <td>出生日期</td>
+      <td>入学年份</td>
+      <td>学院</td>
+      <td>专业</td>
+      <td>班级</td>
+      <td>联系电话</td>
+      <td>操作</td>
+     </tr>
+     {% for stu in list %}
+     <tr>
+      <td class="td2">{{ stu.stu_id }}</td>
+      <td class="td2">{{ stu.password }}</td>
+      <td class="td2">{{ stu.name }}</td>
+      <td class="td2">{{ stu.sex }}</td>
+      <td class="td2">{{ stu.native }}</td>
+      <td class="td2">{{ stu.birthday }}</td>
+      <td class="td2">{{ stu.entrance }}</td>
+      <td class="td2">{{ stu.academy }}</td>
+      <td class="td2">{{ stu.major }}</td>
+      <td class="td2">{{ stu.sclass }}</td>
+      <td class="td2">{{ stu.telephone }}</td>
+      <td class="td3">
+       <input class="delete" type="button" value="删除" onclick=""/>
+       <input class="modify" type="button" value="修改" onclick="window.location.href='http://127.0.0.1:8000/personal_infor/alter_stu'"/>
+      </td>
+     </tr>
+     {% endfor %}
+     
+     <tr class="tr2">
+      <td colspan="12">
+       <a class="a1" href="">首页</a>
+       <a class="a2" href="">﹤上一页</a>
+       <a class="a3" href="">1</a>
+       <a class="a4" href="">下一页﹥</a> 
+       <a class="a5" href="">尾页</a>
+      </td>
+     </tr>
+     
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

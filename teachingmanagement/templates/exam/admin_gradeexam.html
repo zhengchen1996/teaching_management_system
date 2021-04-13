@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理员-等级考试信息管理</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/exam/admin_gradeexam.css' %}" />
+
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（管理员端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>管理员xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_admin' %}">管理员信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_admin' %}">修改密码</a>
+      </div>
+     </li>
+      
+     <li><a class="btn" href="{% url 'classapp:admin_class' %}">课程信息管理</a></li>
+     
+     <li>
+      <div class="btn">用户信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_teacher' %}">教师信息管理</a>
+       <a href="{% url 'personal_inforapp:admin_stu' %}">学生信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'noticeapp:admin_notice' %}">通知公告管理</a></li>
+     
+     <li>
+      <div class="btn1">考务信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:admin_exam' %}">考场信息管理</a>
+       <a href="{% url 'examapp:admin_gradeexam' %}">等级考试信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'teachapp:admin_teach' %}">教学评估管理</a></li>
+     
+    </div>
+   </aside>
+   
+   <article>
+    <table cellspacing="1" cellpadding="0">
+     <tr>
+      <td colspan="6" class="td1">
+       <div class="div4">等级考试信息管理</div>
+       <input placeholder="请输入考试名称或编号" class="input1" type="text"/>
+       <input class="button" type="button" value="搜索" />
+       <div class="div5"><a href="{% url 'examapp:add_gradeexam' %}">添加等级考试信息</a></div>
+      </td>
+     </tr>
+     
+     <tr class="tr1">
+      <td>等级考试编号</td>
+      <td>考试名称</td>
+      <td>考试日期</td>
+      <td>报考截止时间</td>
+      <td>参考人数</td>
+      <td>操作</td>
+     </tr>
+     
+     {% for grade in list %}
+     <tr>
+      <td class="td2">{{ grade.grade_id }}</td>
+      <td class="td2">{{ grade.name }}</td>
+      <td class="td2">{{ grade.exam_time }}</td>
+      <td class="td2">{{ grade.end_time }}</td>
+      <td class="td2">{{ exam.time }}</td>
+      <td class="td3">
+       <input class="delete" type="button" value="删除" onclick=""/>
+       <input class="modify" type="button" value="修改" onclick="window.location.href='http://127.0.0.1:8000/exam/alter_gradeexam/'"/>
+      </td>
+     </tr>
+     {% endfor %}
+     
+     <tr class="tr2">
+      <td colspan="6">
+       <a class="a1" href="">首页</a>
+       <a class="a2" href="">﹤上一页</a>
+       <a class="a3" href="">1</a>
+       <a class="a4" href="">下一页﹥</a> 
+       <a class="a5" href="">尾页</a>
+      </td>
+     </tr>
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

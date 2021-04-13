@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>教师-添加课程信息</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/class/admin_add_class.css' %}" />
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（管理员端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>管理员xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_admin' %}">管理员信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_admin' %}">修改密码</a>
+      </div>
+     </li>
+      
+     <li><a class="btn1" href="{% url 'classapp:admin_class' %}">课程信息管理</a></li>
+     
+     <li>
+      <div class="btn">用户信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:admin_teacher' %}">教师信息管理</a>
+       <a href="{% url 'personal_inforapp:admin_stu' %}">学生信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'noticeapp:admin_notice' %}">通知公告管理</a></li>
+     
+     <li>
+      <div class="btn">考务信息管理</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:admin_exam' %}">考场信息管理</a>
+       <a href="{% url 'examapp:admin_gradeexam' %}">等级考试信息管理</a>
+      </div>
+     </li>
+     
+     <li><a class="btn" href="{% url 'teachapp:admin_teach' %}">教学评估管理</a></li>
+     
+    </div>
+   </aside>
+   <article>
+    <table class="table1" cellspacing="1" cellpadding="0">
+     <tr>
+      <td class="td1">
+       <div class="div4">添加课程信息</div>
+      </td>
+     </tr>
+     
+     <tr>
+      <td>
+       <form action="{% url 'classapp:addlogic_class' %}" method="post">
+           {% csrf_token %}
+        <table class="table2">
+         <tr>
+          <td class="td2">课程号</td>
+          <td><input class="input1" type="text" name="class_id"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">课程名称</td>
+          <td><input class="input1" type="text" name="name"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">授课老师编号</td>
+          <td><input class="input1" type="text" name="teacher_id"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">授课老师姓名</td>
+          <td><input class="input1" type="text" name="teacher_name"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">课程节数</td>
+          <td><input class="input1" type="text" name="time"/></td>
+         </tr>
+
+         <tr>
+          <td class="td2">课程周数</td>
+          <td><input class="input1" type="text" name="week"/></td>
+         </tr>
+
+         <tr>
+          <td class="td2">上课地点</td>
+          <td><input class="input1" type="text" name="place"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">课程类型</td>
+          <td>
+           <select class="select1" name="category">
+            <option value="required">必修课</option>
+            <option value="optional">选修课</option>
+           </select>
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td2">所属院系</td>
+          <td>
+           <select class="select1" name="academy">
+            <option value="xx">xx学院</option>
+           </select>
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td2">学分</td>
+          <td><input class="input1" type="text" name="credit"/></td>
+         </tr>
+         
+         <tr>
+          <td colspan="2" class="td3">
+           <input class="button" type="submit" value="提交" />
+           <input class="button" type="reset" value="重置" />
+          </td>
+         </tr>
+        </table>
+       </form>
+      </td>
+     </tr>
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>

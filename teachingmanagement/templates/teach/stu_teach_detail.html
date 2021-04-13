@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {% load static %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>学生-评教详情页</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/teach/stu_teach_detail.css' %}" />
+</head>
+
+<body>
+ <div class="div1">
+  <header class="header1">
+   <div class="div2">教务管理系统（学生端）</div>
+   <select class="select">
+    <option value="" selected="selected" disabled>当前用户：学生xxx</option>
+    <option value="quit">注销</option>
+   </select>
+  </header>
+  <main>
+   <aside>
+    <div class="menu">
+    
+     <li>
+      <div class="btn">系统管理</div>
+      <div class="smenu">
+       <a href="{% url 'personal_inforapp:stu_infor' %}">个人信息</a>
+       <a href="{% url 'personal_inforapp:alterpwd_stu' %}" >修改密码</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">通知公告</div>
+      <div class="smenu">
+       <a href="{% url 'noticeapp:stu_notice' %}" >公告信息</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">课表查询</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_schedule' %}" >本学期课表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">选课管理</div>
+      <div class="smenu">
+       <a href="{% url 'classapp:stu_class_select' %}" >选课列表</a>
+       <a href="{% url 'classapp:stu_class_selected' %}" >已选课程列表</a>
+      </div>
+     </li>
+      
+     <li>
+      <div class="btn">成绩查询</div>
+      <div class="smenu">
+       <a href="{% url 'scoreapp:stu_score' %}" >课程成绩查询</a>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn">考务安排</div>
+      <div class="smenu">
+       <a href="{% url 'examapp:stu_exam' %}" >考场查询</a>
+       <div class="sli">
+        <div class="sbtn">等级考试管理</div>
+        <div class="ssmenu">
+         <a href="{% url 'examapp:stu_grade_sign' %}" >考试报名</a>
+         <a href="{% url 'examapp:stu_grade_signed' %}" >已报等级考试列表</a>
+        </div>
+       </div>
+      </div>
+     </li>
+     
+     <li>
+      <div class="btn1">教学评估</div>
+      <div class="smenu">
+       <a href="{% url 'teachapp:stu_teach' %}" >学生评教</a>
+      </div>
+     </li>
+    
+    </div>
+   </aside>
+   <article>
+    <table class="table1" cellspacing="1" cellpadding="0">
+     <tr>
+      <td class="td1">
+       <div class="div4">学生评教</div>
+      </td>
+     </tr>
+     
+     <tr>
+      <td>
+       <form action="{% url 'scoreapp:addlogic_score' %}" method="post">
+           {% csrf_token %}
+        <table class="table2">
+         <tr>
+          <td class="td2">教学评估编号</td>
+          <td><input class="input1" type="text" name="evaluation_id"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">课程名称</td>
+          <td><input class="input1" type="text" name="class_name"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td2">任课老师</td>
+          <td><input class="input1" type="text" name="teacher_name"/></td>
+         </tr>
+         
+         <tr>
+          <td class="td4" colspan="2">1.教学态度与提前准备：师德师风，备课情况，教材选用</td>
+         </tr>
+         
+         <tr>
+          <td colspan="2">
+           <input class="radio1" type="radio" name="text1" value="perfect"/>非常满意（2分）
+           <input class="radio2" type="radio" name="text1" value="good"/>满意（1分）
+           <input class="radio2" type="radio" name="text1" value="bad"/>不满意（0分）
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td4" colspan="2">2.教学水平与授课艺术：语言表达，板书较多媒体的使用，讲课进度安排</td>
+         </tr>
+         
+         <tr>
+          <td colspan="2">
+           <input class="radio1" type="radio" name="text2" value="perfect"/>非常满意（2分）
+           <input class="radio2" type="radio" name="text2" value="good"/>满意（1分）
+           <input class="radio2" type="radio" name="text1" value="bad"/>不满意（0分）
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td4" colspan="2">3.教学方法与教学手段：引导和拓展思维，激发兴趣，培养实践能力，师生互动</td>
+         </tr>
+         
+         <tr>
+          <td colspan="2">
+           <input class="radio1" type="radio" name="text3" value="perfect"/>非常满意（2分）
+           <input class="radio2" type="radio" name="text3" value="good"/>满意（1分）
+           <input class="radio2" type="radio" name="text3" value="bad"/>不满意（0分）
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td4" colspan="2">4.教学效果：接受和掌握课程内容，应用课程内容解决问题，思维能力和学习能力的提高</td>
+         </tr>
+         
+         <tr>
+          <td colspan="2">
+           <input class="radio1" type="radio" name="text4" value="perfect"/>非常满意（2分）
+           <input class="radio2" type="radio" name="text4" value="good"/>满意（1分）
+           <input class="radio2" type="radio" name="text4" value="bad"/>不满意（0分）
+          </td>
+         </tr>
+         
+         <tr>
+          <td class="td4" colspan="2">5.主观评价</td>
+         </tr>
+         
+         <tr>
+          <td colspan="2">
+           <textarea class="text" rows="5" cols="70">
+           </textarea>
+          </td>
+         </tr>
+         
+         <tr>
+          <td colspan="2" class="td3">
+           <input class="button" type="submit" value="提交" />
+           <input class="button" type="reset" value="重置" />
+          </td>
+         </tr>
+        </table>
+       </form>
+      </td>
+     </tr>
+    </table>
+   </article>
+  </main>
+ </div>
+</body>
+</html>
